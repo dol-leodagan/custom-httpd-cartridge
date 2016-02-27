@@ -1,0 +1,13 @@
+---
+locked_files:
+- bin/
+- bin/*
+- metadata/
+- conf/
+- conf/*
+- conf.d/
+- conf.d/openshift.conf
+- env/
+- env/*
+processed_templates:
+- '**/*.erb'
