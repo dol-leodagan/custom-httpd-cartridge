@@ -13,12 +13,12 @@ case "$1" in
       version="$2"
 esac
 
-echo "$version" > "$OPENSHIFT_HTTPDWSGI_DIR/env/OPENSHIFT_HTTPDWSGI_VERSION"
+echo "$version" > "$OPENSHIFT_CUSTOMHTTPD_DIR/env/OPENSHIFT_HTTPDWSGI_VERSION"
 
-ln -s ${_libdir}/httpd/modules ${OPENSHIFT_HTTPDWSGI_DIR}modules
-ln -s /etc/httpd/conf/magic ${OPENSHIFT_HTTPDWSGI_DIR}conf/magic
+ln -s ${_libdir}/httpd/modules ${OPENSHIFT_CUSTOMHTTPD_DIR}modules
+ln -s /etc/httpd/conf/magic ${OPENSHIFT_CUSTOMHTTPD_DIR}conf/magic
 
 client_result ""
-client_result "URL: https://$OPENSHIFT_GEAR_DNS/wsgi/"
+client_result "URL: https://$OPENSHIFT_GEAR_DNS/csthttp/"
 
-cart_props "connection_url=https://$OPENSHIFT_GEAR_DNS/wsgi/"
+cart_props "connection_url=https://$OPENSHIFT_GEAR_DNS/csthttp/"
