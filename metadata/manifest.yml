@@ -1,5 +1,5 @@
 ---
-Name:customhttpd
+Name: customhttpd
 Cartridge-Short-Name: CUSTOMHTTPD
 Display-Name: Custom Apache httpd
 Description: Custom Apache httpd with user controlled configuration
