@@ -1,8 +1,8 @@
 ---
-Name: httpd-wsgi
-Cartridge-Short-Name: HTTPDWSGI
-Display-Name: Apache httpd with WSGI
-Description: Custom Apache httpd with WSGI Support for Python 2.6 
+Name:customhttpd
+Cartridge-Short-Name: CUSTOMHTTPD
+Display-Name: Custom Apache httpd
+Description: Custom Apache httpd with user controlled configuration
 Version: '1'
 License: MIT
 Vendor: Leodagan
@@ -18,7 +18,7 @@ Cart-Data:
   Type: cart_data
   Description: Custom Server Base URL
 Provides:
-- httpd-wsgi
+- custom-httpd
 Scaling:
   Min: 1
   Max: 1
@@ -30,6 +30,6 @@ Endpoints:
   Protocols:
   - http
   Mappings:
-  - Frontend: /wsgi
+  - Frontend: /csthttp
     Backend: /
 Source-Url: https://github.com/dol-leodagan/custom-httpd-cartridge.git
