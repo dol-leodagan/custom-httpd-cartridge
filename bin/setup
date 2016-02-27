@@ -9,4 +9,4 @@ esac
 echo > $OPENSHIFT_HTTPDWSGI_DIR/conf.d/passenv.conf
 echo > $OPENSHIFT_HTTPDWSGI_DIR/conf.d/server-status.conf
 
-mkdir -p $OPENSHIFT_HTTPDWSGI_DIR/{run,sessions,tmp,conf,conf.d}
+mkdir -p $OPENSHIFT_HTTPDWSGI_DIR/{run,sessions,tmp,conf,conf.d,www}
