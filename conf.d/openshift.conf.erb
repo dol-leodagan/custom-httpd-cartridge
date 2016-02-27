@@ -1,0 +1,10 @@
+ServerRoot "<%= ENV['OPENSHIFT_HTTPDWSGI_DIR'] %>"
+Listen <%= ENV['OPENSHIFT_HTTPDWSGI_IP'] %>:<%= ENV['OPENSHIFT_HTTPDWSGI_PORT'] %>
+User <%= ENV['OPENSHIFT_GEAR_UUID'] %>
+Group <%= ENV['OPENSHIFT_GEAR_UUID'] %>
+<IfVersion >= 2.4>
+DefaultRuntimeDir "<%= "#{ENV['OPENSHIFT_HTTPDWSGI_DIR']}/run"%>"
+</IfVersion>
+
+ErrorLog "|tee"
+CustomLog "|tee" combined
