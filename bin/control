@@ -9,8 +9,14 @@ HTTPD_PID_FILE=${OPENSHIFT_CUSTOMHTTPD_DIR}run/httpd.pid
 # construct the configuration directives for httpd
 HTTPD_CMD_CONF="-C 'Include ${OPENSHIFT_CUSTOMHTTPD_DIR}conf.d/*.conf' -f $HTTPD_CFG_FILE"
 for dir in /etc/openshift/cart.conf.d/httpd{,/customhttpd} ; do
-    [ -d $dir ] && HTTPD_CMD_CONF="$HTTPD_CMD_CONF -c 'Include $dir/*.conf'"
+    [ -d "$dir" ] && HTTPD_CMD_CONF="$HTTPD_CMD_CONF -c 'Include $dir/*.conf'"
 done
+
+for file in "${$OPENSHIFT_REPO_DIR}.openshift/custom-httpd.d/*.conf.erb" ; do
+    [ -f "$file" ] && erb "$file" > "${file%.*}.conf"
+done
+
+[ -d "${$OPENSHIFT_REPO_DIR}.openshift/custom-httpd.d/" ] && HTTPD_CMD_CONF="$HTTPD_CMD_CONF -c 'Include ${$OPENSHIFT_REPO_DIR}.openshift/custom-httpd.d/*.conf'"
 
 LD_LIBRARY_PATH="/opt/rh/python27/root/usr/lib64:${LD_LIBRARY_PATH}"
 
