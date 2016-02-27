@@ -32,3 +32,4 @@ Endpoints:
   Mappings:
   - Frontend: /wsgi
     Backend: /
+Source-Url: https://github.com/dol-leodagan/custom-httpd-cartridge.git
