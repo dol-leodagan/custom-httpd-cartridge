@@ -7,5 +7,35 @@ Group <%= ENV['OPENSHIFT_GEAR_UUID'] %>
 DefaultRuntimeDir "<%= "#{ENV['OPENSHIFT_CUSTOMHTTPD_DIR']}/run"%>"
 </IfVersion>
 
+<IfVersion >= 2.4>
+  <Directory "<%= ENV['OPENSHIFT_CUSTOMHTTPD_DOCUMENT_ROOT'] || "#{ENV['OPENSHIFT_CUSTOMHTTPD_DIR']}www" %>">
+    Options -Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+  </Directory>
+</IfVersion>
+<IfVersion < 2.4>
+  <Directory "<%= ENV['OPENSHIFT_CUSTOMHTTPD_DOCUMENT_ROOT'] || "#{ENV['OPENSHIFT_CUSTOMHTTPD_DIR']}www" %>">
+    Options -Indexes FollowSymLinks
+    AllowOverride All
+    Order allow,deny
+    Allow from all
+  </Directory>
+</IfVersion>
+
+<IfVersion >= 2.4>
+  <Directory "<%= "#{ENV['OPENSHIFT_REPO_DIR']}.openshift" %>">
+    AllowOverride None
+    Require all denied
+  </Directory>
+</IfVersion>
+<IfVersion < 2.4>
+  <Directory "<%= "#{ENV['OPENSHIFT_REPO_DIR']}.openshift" %>">
+    AllowOverride None
+    Order allow,deny
+    Deny from all
+  </Directory>
+</IfVersion>
+
 ErrorLog "|tee"
 CustomLog "|tee" combined
