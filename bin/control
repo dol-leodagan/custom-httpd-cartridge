@@ -12,7 +12,7 @@ for dir in /etc/openshift/cart.conf.d/httpd{,/customhttpd} ; do
     [ -d "$dir" ] && HTTPD_CMD_CONF="$HTTPD_CMD_CONF -c 'Include $dir/*.conf'"
 done
 
-for file in "${OPENSHIFT_REPO_DIR}.openshift/custom-httpd.d/*.conf.erb" ; do
+for file in "${OPENSHIFT_REPO_DIR}.openshift/custom-httpd.d/"*.conf.erb ; do
     [ -f "$file" ] && erb "$file" > "${file%.*}.conf"
 done
 
