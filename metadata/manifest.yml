@@ -31,5 +31,5 @@ Endpoints:
   - http
   Mappings:
   - Frontend: /csthttp
-    Backend: /
+    Backend: /csthttp
 Source-Url: https://github.com/dol-leodagan/custom-httpd-cartridge.git
