@@ -28,3 +28,9 @@ WSGIPassAuthorization On
 WSGIScriptAlias /my-wsgi <%= ENV['OPENSHIFT_REPO_DIR'] %>/wsgi/app.wsgi
 
 ````
+
+
+Custom Document Root
+````
+$OPENSHIFT_CUSTOMHTTPD_DOCUMENT_ROOT
+````
